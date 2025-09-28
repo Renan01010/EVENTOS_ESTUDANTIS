@@ -16,7 +16,11 @@ Emitir lista de presença de um evento
 
 # Estrutura do Projeto
 main.c → menu principal
+
 eventos.c / eventos.h → cadastro e gerenciamento de eventos
+
 participantes.c / participantes.h → inscrições e remoções
+
 lista.c / lista.h → implementação da lista encadeada
+
 README.md → orientações gerais
