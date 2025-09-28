@@ -28,7 +28,7 @@ ListaParticipante* criarListaParticipante();
 void destruirListaParticipante(ListaParticipante* listaP);
 
 // Inserir participante na lista em uma posição específica - Kauan
-int inserirParticipante(ListaParticipante* listaP, int posicao, int RA, const char* nome, int codEvento);
+int inserirParticipante(ListaParticipante* listaP, int RA, const char* nome, int codEvento);
 
 // Remover participante da lista - Renan
 void removerParticipante(ListaParticipante* listaP, NoParticipante* participante);
