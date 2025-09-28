@@ -3,15 +3,15 @@ Desenvolver uma aplicação em linguagem C que utilize listas encadeadas para ar
 
 # Funcionalidades
 Cadastrar eventos (código, nome, data)
-#
+
 Inscrever participantes (RA, nome, evento) com verificação de duplicidade
-#
+
 Listar participantes por evento
-#
+
 Remover participante de um evento
-#
+
 Emitir relatório de participação individual (por RA)
-#
+
 Emitir lista de presença de um evento
 
 # Estrutura do Projeto
