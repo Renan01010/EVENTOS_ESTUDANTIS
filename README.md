@@ -1,7 +1,7 @@
 # Sistema de Gerenciamento de Eventos em C
 Desenvolver uma aplicação em linguagem C que utilize listas encadeadas para armazenar, manipular e exibir dados de eventos e participantes.
 
-## Funcionalidades
+# Funcionalidades
 - Cadastrar eventos (código, nome, data)
 - Inscrever participantes (RA, nome, evento) com verificação de duplicidade
 - Listar participantes por evento
