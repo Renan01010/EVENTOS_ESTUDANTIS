@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "eventos.h"
+#include "lista.h"
 
 // Função: Criar estrutura de lista de eventos vazia - Leticia
 CadastroEvento* criarEvento()
@@ -37,9 +38,11 @@ void destruirEvento(CadastroEvento* evento)
     //libera memória ate o fim da lista
     while (atual != NULL){
         proximo = atual -> proximo;
+        destruirListaParticipantes(atual->participantes);  // libera lista de participantes usando a função de lista.h
         free(atual);
         atual = proximo;
     }
+    
     //libera a memoria da lista
     free(evento);  
 }
@@ -63,6 +66,7 @@ int inserirEvento(CadastroEvento* evento, int codigo, char *nome, char *data)
     novoNo->codigo=codigo;
     strcpy(novoNo->nome,nome);
     strcpy(novoNo->data,data);
+    novoNo->participantes = criarListaParticipantes();
     novoNo->proximo=NULL;
     novoNo->anterior=NULL;
 
@@ -95,23 +99,45 @@ int inserirEvento(CadastroEvento* evento, int codigo, char *nome, char *data)
             atual->anterior->proximo = novoNo;
             atual->anterior = novoNo;
         }
-        return 1;
+       
     }
-
-
-    
-
-
+    evento->tamanho++;
+    return 1;
 }
-//  Função: Buscar um evento pelo código - Renan
+
+//  Função: Buscar um evento pelo código - Lucas
 NoEvento* buscarEvento(CadastroEvento* evento, int codigo)
 {
- 
+ if (evento == NULL || evento->inicio == NULL) {
+    printf("Lista eventos vazia\n");
+    return NULL;
+ }
+// percorrer a lista ate encontrar o codigo ou até null - Lucas
+    NoEvento* atual = evento->inicio;
+    while(atual != NULL){
+        if(atual->codigo == codigo){
+            return atual;
+        }
+        atual = atual->proximo;
+    }
+    return NULL;
 }
+
 // Listar todos os eventos cadastrados - Renan
 void listarEventos(CadastroEvento* evento)
 {
+    if (evento == NULL || evento->inicio == NULL) {
+        printf("Sem eventos!!\n");
+        return;
+    }
 
+    NoEvento* atual= evento->inicio;
+    printf("Eventos:");
+    while(atual != NULL){
+        printf("codigo: %d\nNome: %s\nData: %s \n\n\n", atual->codigo, atual->nome, atual->data);
+        atual=atual->proximo;
+    }
+    return;
 
 }
 

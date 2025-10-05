@@ -1,8 +1,6 @@
 #ifndef EVENTOS_ENCADEADO_H
 #define EVENTOS_ENCADEADO_H
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+#include "lista.h"
 
 
 //Estrutura do evento, Nó evento, como nome; codigo e data, lembrando que estamos utilizando lista dupla encadeada
@@ -12,6 +10,7 @@ typedef struct NoEvento {
     char data[10]; // 
     struct NoEvento* anterior;  
     struct NoEvento* proximo;
+    ListaNoParticipante* participantes;
 } NoEvento;
 
 //Aqui é a estrutura do nó da lista dupla 
