@@ -1,7 +1,7 @@
-#include <stdio.h>;
-#include <stdlib.h>;
-#include <string.h>;
-#include "eventos.h";
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include "eventos.h"
 
 // Função: Criar estrutura de lista de eventos vazia - Leticia
 CadastroEvento* criarEvento()
@@ -11,7 +11,7 @@ CadastroEvento* criarEvento()
     // verifica se a alocação foi realizada com sucesso!
     if(novoEvento == NULL){
         printf("Erro na alocacao!!\n");
-        return;
+        return NULL;
     }
     //coloca inio com null, pois a lista está vazia
     novoEvento->inicio=NULL; 
@@ -23,16 +23,16 @@ CadastroEvento* criarEvento()
     return novoEvento;    
 }
 // Função: Destruir a lista de eventos e liberar memória - Lucas
-void destruirEvento(CasdastroEvento* evento)
+void destruirEvento(CadastroEvento* evento)
 {
     //verifica se a lista existe
-    if (lista == NULL) {
+    if (evento->inicio == NULL) {
         return;
     }
 
     //remover todos os nós da lista
-    No* atual = evento->inicio;
-    No* proximo;
+    NoEvento* atual = evento->inicio;
+    NoEvento* proximo;
     
     //libera memória ate o fim da lista
     while (atual != NULL){
@@ -67,11 +67,11 @@ int inserirEvento(CadastroEvento* evento, int codigo, char *nome, char *data)
     novoNo->anterior=NULL;
 
     //caso especial: se for vazia a lista
-    if(evento==NULL){
+    if(evento->inicio==NULL){
         evento->inicio=novoNo;
         evento->fim=novoNo;
     }else{
-        NoEvento* atual =evento->inicio;
+        NoEvento* atual = evento->inicio;
         //verificação para inserir em ordem alfabética
         while(atual != NULL && strcmp(nome, atual->nome)>0){
             atual = atual->proximo;
@@ -84,13 +84,18 @@ int inserirEvento(CadastroEvento* evento, int codigo, char *nome, char *data)
         }
         //caso inserção na ultima posicao
         else if (atual == NULL){
-            novoNo->anterior = evento->ultimo;
-            evento->ultimo->proximo = novoNo;
-            evento->ultimo = novoNo;
+            novoNo->anterior = evento->fim;
+            evento->fim->proximo = novoNo;
+            evento->fim = novoNo;
         }
         else{
-            novo->
+            //caso inserção no meio
+            novoNo->proximo = atual;
+            novoNo->anterior = atual->anterior;
+            atual->anterior->proximo = novoNo;
+            atual->anterior = novoNo;
         }
+        return 1;
     }
 
 
@@ -99,12 +104,12 @@ int inserirEvento(CadastroEvento* evento, int codigo, char *nome, char *data)
 
 }
 //  Função: Buscar um evento pelo código - Renan
-int NoEvento* buscarEvento()
+NoEvento* buscarEvento(CadastroEvento* evento, int codigo)
 {
  
 }
 // Listar todos os eventos cadastrados - Renan
-void listarEventos()
+void listarEventos(CadastroEvento* evento)
 {
 
 
