@@ -6,12 +6,12 @@
 #include "eventos.h"
 
 // Estrutura do nó do participante com os dados e ponteiro para o nó anterior e próximo
-typedef struct noParticipante {
+typedef struct NoParticipante {
     int RA;
     char nome[50];
     int codEvento;
-    struct noParticipante* proximo;
-    struct noParticipante* anterior;
+    struct NoParticipante* proximo;
+    struct NoParticipante* anterior;
 } NoParticipante;
 
 // Estrutura da lista encadeada dos participantes, declara os ponteiros de inicio e fim da lista, além do contador de elementos
