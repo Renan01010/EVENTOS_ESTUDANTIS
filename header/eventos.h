@@ -2,6 +2,7 @@
 #define EVENTOS_ENCADEADO_H
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 //Estrutura do evento, Nó evento, como nome; codigo e data, lembrando que estamos utilizando lista dupla encadeada
@@ -15,18 +16,18 @@ typedef struct NoEvento {
 
 //Aqui é a estrutura do nó da lista dupla 
 typedef struct CadastroEvento {
-    No* inicio;     //Inicio da lista
-    No* fim;    //fim da lista
+    struct NoEvento* inicio;     //Inicio da lista
+    struct NoEvento* fim;    //fim da lista
     int tamanho;    //tamaho da lista
 }CadastroEvento;
 
 
 // Função: Criar estrutura de lista de eventos vazia - Leticia
-CadastroEvento* criarEvento();
+CadastroEvento* criarEvento(void);
 
 
 // Função: Destruir a lista de eventos e liberar memória - Lucas
-void destruirEvento(CasdastroEvento* evento);
+void destruirEvento(CadastroEvento* evento);
 
 
 // Função: Inserir um novo evento no cadastro - Kauan
