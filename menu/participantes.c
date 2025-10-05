@@ -49,7 +49,7 @@ void destruirListaParticipante(ListaParticipante* listaP){
 // Inserir participante na lista em uma posição específica - Kauan
 int inserirParticipante(ListaParticipante* listaP, int RA, const char* nome, int codEvento){
 
-    NoParticipante* novoParticipante = (NoParticipante*)malloc(sizeof(Noparticipante));
+    NoParticipante* novoParticipante = (NoParticipante*)malloc(sizeof(NoParticipante));
 
     if(novoParticipante == NULL){
         printf("erro ao adicionar participante!");
@@ -62,9 +62,9 @@ int inserirParticipante(ListaParticipante* listaP, int RA, const char* nome, int
     novoParticipante->anterior=NULL;
     novoParticipante->proximo=NULL;
 
-    if(ListaP == NULL){
-        ListaP->inicio = novoParticipante;
-        ListaP->proximo = novoParticipante;
+    if(listaP == NULL){
+        listaP->inicio = novoParticipante;
+        listaP->proximo = novoParticipante;
     } else {
 
     }
