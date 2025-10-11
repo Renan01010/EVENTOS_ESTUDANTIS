@@ -12,11 +12,10 @@ int main(){
     int RA;
     CadastroEvento *eventos = criarEvento();
     
-    
     printf("Sistema de eventos escolares!\nSegue o menu abaixo\n");
     do
     {
-        printf("=== MENU ===");
+        printf("=== MENU ===\n");
         printf("1. CADASTRAR EVENTO:\n2. LISTAR EVENTOS:\n3.INSCREVER PARTICIPANTE: \n4. REMOVER PARTICIPANTE:\n5. EMITIR RELATORIO DE PARTICIPACAO INDIVIDUAL: \n6. EMITIR LISTA DE PARTICIPACAO DE UM EVENTO: \n0. ENCERRAR PROGRAMA:\n");
         scanf("%d",&menu);
         switch (menu)
@@ -42,8 +41,8 @@ int main(){
                 listarEventos(eventos);
                 break;
             
-            case 3:
-                printf("Digite o código do evento para inscrição: ");
+            case 3: {
+                printf("Digite o codigo do evento para inscrição: ");
                 scanf("%d", &codigo);
 
                 NoEvento* eventoAtual = buscarEvento(eventos, codigo);
@@ -63,14 +62,15 @@ int main(){
                 inserirParticipante(eventoAtual->participantes, RA, nome, codigo);
                 printf("Participante inscrito com sucesso no evento %s!\n", eventoAtual->nome);
                 break;
+            }
                 
-            case 4:
-                printf("Digite o código do evento: ");
+            case 4: {
+                printf("Digite o codigo do evento: ");
                 scanf("%d", &codigo);
 
                 NoEvento* eventoAtual = buscarEvento(eventos, codigo);
                 if (eventoAtual == NULL) {
-                    printf("Erro: evento não encontrado!\n");
+                    printf("Erro: evento nao encontrado!\n");
                     break;
                 }
 
@@ -79,8 +79,9 @@ int main(){
 
                 removerParticipante(eventoAtual->participantes, RA);
                 break;
+            }
 
-            case 5:
+            case 5: {
                 printf("Digite o RA do participante: ");
                 scanf("%d", &RA);
 
@@ -98,17 +99,19 @@ int main(){
                     printf("Nenhum evento cadastrado!\n");
                 }
                 break;
+            }
 
-            case 6:
-                 printf("Digite o código do evento: ");
+            case 6: {
+                 printf("Digite o codigo do evento: ");
                  scanf("%d", &codigo);
                  NoEvento* eventoAtual = buscarEvento(eventos, codigo);
                  if (eventoAtual == NULL) {
                     printf("Erro: evento não encontrado!\n");
-                break;
+                    break;
                 }
                 emitirListaPresenca(eventoAtual->participantes, codigo); 
                 break;
+            }
                 case 0:
                 printf("Encerrando...\n");
                 break;                
