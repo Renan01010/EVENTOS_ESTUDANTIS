@@ -166,6 +166,7 @@ void removerParticipante(ListaParticipante* listaP, int RA){
         listaP->fim = participante->anterior;
     }
 
+    printf("Participante removido com sucesso!\n")
     //exclui o participante
     free(participante);
     listaP->tamanho--;

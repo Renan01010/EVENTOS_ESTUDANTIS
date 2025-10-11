@@ -1,4 +1,6 @@
 #include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
 #include "eventos.h"
 #include "participantes.h"
 #include "lista.h"
@@ -14,7 +16,7 @@ int main(){
     do
     {
         printf("=== MENU ===");
-        printf("1. CADASTRAR EVENTO:\n2. BUSCAR EVENTO:\n3. LISTAR EVENTO:\n4.INSCREVER PARTICIPANTE:\n5.BUSCAR PARTICIPANTE:\n6. LISTAR PARTICIPANTE:\n7. REMOVER PARTICIPANTE:\n. ENCERRAR PROGRAMA:\n");
+        printf("1. CADASTRAR EVENTO:\n2. LISTAR EVENTOS:\n3.INSCREVER PARTICIPANTE: \n4. REMOVER PARTICIPANTE:\n5. EMITIR RELATORIO DE PARTICIPACAO INDIVIDUAL: \n6. EMITIR LISTA DE PARTICIPACAO DE UM EVENTO: \n0. ENCERRAR PROGRAMA:\n");
         scanf("%d",&menu);
         switch (menu)
         {
@@ -33,29 +35,61 @@ int main(){
                 inserirEvento(eventos, codigo, nome, data);
                 printf("Evento criado!!\n");
                 break;
-            case 2: 
+
+
+
+            case 2:
+                printf("Aqui estao todos os eventos listados:\n");
+                listarEventos(eventos);
+                break;
+
+
+
             case 3:
-            case 4:
-                printf("Digite o codigo do evento para inscrição: \n");
+                printf("Digite o codigo do evento para inscricao: \n");
                 scanf("%d",&codigo);
                 if(buscarEvento(eventos, codigo) == NULL){
                     printf("Erro: evento não encontrado!\n");
                     break;
                 }
-                printf("Digite o RA do participante para inscrição: \n");
-                scanf("%d",&RA); 
-            case 5:
+                printf("Digite o RA do participante para inscricao: \n");
+                scanf("%d",&RA);
+                break;
+                
+                
+
+            case 4:
+                printf("Digite o RA do participante: \n");
+                scanf("%d",&RA);
+                removerParticipante(ListaP, RA);
+                break;
+
+
+
+
             case 6:
+                printf("Essa é a lista de participação por evento!");
+                printf("Digite o RA do pariticpante:")
+
+                void relatorioParticipacao(ListaParticipante* listaP, int RA)
             case 7:
-            case 8:
-            case 9: 
+
+
+
+        
             case 0:
                 printf("Encerrando...\n");
                 break;
+
+
+
+                
             default:
-                printf("Você digitou um numero invalido, por gentileza entre com numero valido!");
+                printf("Voce digitou um numero invalido, por gentileza entre com numero valido!");
         }
     } while (menu!=0);  
 
     return 0;
 }
+
+// png misteriosa: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGlH3TJ5WoK5fFKNcQ4lechdhPilj9cHINmg&s
