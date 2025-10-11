@@ -5,7 +5,7 @@
 #include "lista.h"
 
 // Criar lista de participantes - Lucas
-ListaParticipante* criarListaParticipante() {
+ListaParticipante* criarListaParticipantes() {
 
     //alocar uma nova lista dinamicamente
     ListaParticipante* novalistaP = (ListaParticipante*)malloc(sizeof(ListaParticipante));
