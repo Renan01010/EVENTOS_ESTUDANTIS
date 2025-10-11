@@ -9,6 +9,7 @@ int main(){
     int menu=-1;
     int codigo;
     char nome[100], data[10];
+    int RA;
     CadastroEvento *eventos = criarEvento();
     ListaParticipante *participantes = criarListaParticipante();
     
@@ -35,55 +36,41 @@ int main(){
                 inserirEvento(eventos, codigo, nome, data);
                 printf("Evento criado!!\n");
                 break;
-
-
-
             case 2:
                 printf("Aqui estao todos os eventos listados:\n");
                 listarEventos(eventos);
                 break;
-
-
-
             case 3:
                 printf("Digite o codigo do evento para inscricao: \n");
                 scanf("%d",&codigo);
-                if(buscarEvento(eventos, codigo) == NULL){
-                    printf("Erro: evento não encontrado!\n");
-                    break;
-                }
+                
                 printf("Digite o RA do participante para inscricao: \n");
                 scanf("%d",&RA);
                 break;
-                
-                
 
+                printf("Digite o nome do parcitipante: \n");
+                fgets(nome,sizeof(nome), stdin);
+                nome[strcspn(nome, "\n")] = 0;
+                
+                inserirParticipante(listaP, codigo, RA, nome);
+                break;
+                
             case 4:
                 printf("Digite o RA do participante: \n");
                 scanf("%d",&RA);
                 removerParticipante(ListaP, RA);
                 break;
-
-
-
-
+            case 5:
+            
             case 6:
-                printf("Essa é a lista de participação por evento!");
-                printf("Digite o RA do pariticpante:")
-
-                void relatorioParticipacao(ListaParticipante* listaP, int RA)
-            case 7:
-
-
-
-        
+                printf("Essa é a lista de participação por evento!\n");
+                printf("Digite o RA do pariticpante: \n");
+                scanf("%d", &Ra);
+                relatorioParticipacao(participantes, RA);
+                break;
             case 0:
                 printf("Encerrando...\n");
-                break;
-
-
-
-                
+                break;                
             default:
                 printf("Voce digitou um numero invalido, por gentileza entre com numero valido!");
         }

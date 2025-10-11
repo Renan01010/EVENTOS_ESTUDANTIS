@@ -10,7 +10,7 @@ typedef struct NoEvento {
     char data[10]; // 
     struct NoEvento* anterior;  
     struct NoEvento* proximo;
-    ListaNoParticipante* participantes;
+    ListaParticipante* participantes;
 } NoEvento;
 
 //Aqui é a estrutura do nó da lista dupla 

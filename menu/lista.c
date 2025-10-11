@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "participantes.h"
+#include "lista.h"
 
 // Criar lista de participantes - Lucas
 ListaParticipante* criarListaParticipante() {
@@ -166,7 +167,7 @@ void removerParticipante(ListaParticipante* listaP, int RA){
         listaP->fim = participante->anterior;
     }
 
-    printf("Participante removido com sucesso!\n")
+    printf("Participante removido com sucesso!\n");
     //exclui o participante
     free(participante);
     listaP->tamanho--;
