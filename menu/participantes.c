@@ -19,7 +19,7 @@ void relatorioParticipacao(ListaParticipante* listaP, int RA) {
         }
         p = p->proximo;
     }
-    printf("Participante com RA %d não encontrado.\n", RA);
+    printf("Participante com RA %d nao encontrado.\n", RA);
 }
 
 // Função: Emitir lista de presença de um evento - Leticia
@@ -30,7 +30,7 @@ void emitirListaPresenca(ListaParticipante* listaP, int codEvento)
         return;
     }
 
-    printf("\n===== LISTA DE PRESENÇA - EVENTO %d =====\n", codEvento);
+    printf("\n===== LISTA DE PRESENCA - EVENTO %d =====\n", codEvento);
     int encontrados = 0;
 
     NoParticipante* atual = listaP->inicio;

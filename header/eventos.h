@@ -10,7 +10,7 @@ typedef struct ListaParticipante ListaParticipante;
 typedef struct NoEvento {
     int codigo;                 
     char nome[100];
-    char data[10]; // 
+    char data[11]; // 
     struct NoEvento* anterior;  
     struct NoEvento* proximo;
     ListaParticipante* participantes;

@@ -80,7 +80,7 @@ int inserirParticipante(ListaParticipante* listaP, int RA, const char* nome, int
 
     //verifica se o participante já existe
     if(buscaParticipante(listaP, RA) != NULL){
-        printf("Erro: participante já cadastrado\n");
+        printf("Erro: participante ja cadastrado\n");
         return 0;
     }
 

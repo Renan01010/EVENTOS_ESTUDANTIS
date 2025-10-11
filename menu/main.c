@@ -8,7 +8,7 @@
 int main(){
     int menu=-1;
     int codigo;
-    char nome[100], data[10];
+    char nome[100], data[11];
     int RA;
     CadastroEvento *eventos = criarEvento();
     
@@ -16,7 +16,7 @@ int main(){
     do
     {
         printf("=== MENU ===\n");
-        printf("1. CADASTRAR EVENTO:\n2. LISTAR EVENTOS:\n3.INSCREVER PARTICIPANTE: \n4. REMOVER PARTICIPANTE:\n5. EMITIR RELATORIO DE PARTICIPACAO INDIVIDUAL: \n6. EMITIR LISTA DE PARTICIPACAO DE UM EVENTO: \n0. ENCERRAR PROGRAMA:\n");
+        printf("1. CADASTRAR EVENTO:\n2. LISTAR EVENTOS:\n3. INSCREVER PARTICIPANTE: \n4. REMOVER PARTICIPANTE:\n5. EMITIR RELATORIO DE PARTICIPACAO INDIVIDUAL: \n6. EMITIR LISTA DE PARTICIPACAO DE UM EVENTO: \n0. ENCERRAR PROGRAMA:\n");
         scanf("%d",&menu);
         switch (menu)
         {
@@ -42,12 +42,12 @@ int main(){
                 break;
             
             case 3: {
-                printf("Digite o codigo do evento para inscrição: ");
+                printf("Digite o codigo do evento para inscricao: ");
                 scanf("%d", &codigo);
 
                 NoEvento* eventoAtual = buscarEvento(eventos, codigo);
                 if (eventoAtual == NULL) {
-                    printf("Erro: evento não encontrado!\n");
+                    printf("Erro: evento nao encontrado!\n");
                     break;
                 }
 
@@ -59,8 +59,11 @@ int main(){
                 fgets(nome, sizeof(nome), stdin);
                 nome[strcspn(nome, "\n")] = 0;
 
-                inserirParticipante(eventoAtual->participantes, RA, nome, codigo);
-                printf("Participante inscrito com sucesso no evento %s!\n", eventoAtual->nome);
+               int resultado = inserirParticipante(eventoAtual->participantes, RA, nome, codigo);
+                if ( resultado != 0)
+                {
+                    printf("Participante inscrito com sucesso no evento %s!\n", eventoAtual->nome);
+                }
                 break;
             }
                 
@@ -106,7 +109,7 @@ int main(){
                  scanf("%d", &codigo);
                  NoEvento* eventoAtual = buscarEvento(eventos, codigo);
                  if (eventoAtual == NULL) {
-                    printf("Erro: evento não encontrado!\n");
+                    printf("Erro: evento nao encontrado!\n");
                     break;
                 }
                 emitirListaPresenca(eventoAtual->participantes, codigo); 
@@ -116,7 +119,7 @@ int main(){
                 printf("Encerrando...\n");
                 break;                
             default:
-                printf("Voce digitou um numero invalido, por gentileza entre com numero valido!");
+                printf("Voce digitou um numero invalido, por gentileza entre com numero valido!\n");
         }
     } while (menu!=0);  
 
