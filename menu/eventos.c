@@ -38,7 +38,7 @@ void destruirEvento(CadastroEvento* evento)
     //libera memória ate o fim da lista
     while (atual != NULL){
         proximo = atual -> proximo;
-        destruirListaParticipantes(atual->participantes);  // libera lista de participantes usando a função de lista.h
+        destruirListaParticipante(atual->participantes);  // libera lista de participantes usando a função de lista.h
         free(atual);
         atual = proximo;
     }
@@ -66,7 +66,7 @@ int inserirEvento(CadastroEvento* evento, int codigo, char *nome, char *data)
     novoNo->codigo=codigo;
     strcpy(novoNo->nome,nome);
     strcpy(novoNo->data,data);
-    novoNo->participantes = criarListaParticipantes();
+    novoNo->participantes = criarListaParticipante();
     novoNo->proximo=NULL;
     novoNo->anterior=NULL;
 

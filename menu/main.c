@@ -11,7 +11,7 @@ int main(){
     char nome[100], data[10];
     int RA;
     CadastroEvento *eventos = criarEvento();
-    ListaParticipante *participantes = criarListaParticipante();
+    
     
     printf("Sistema de eventos escolares!\nSegue o menu abaixo\n");
     do
