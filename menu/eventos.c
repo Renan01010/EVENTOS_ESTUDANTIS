@@ -14,7 +14,7 @@ CadastroEvento* criarEvento()
         printf("Erro na alocacao!!\n");
         return NULL;
     }
-    //coloca inio com null, pois a lista está vazia
+    //coloca inicio com null, pois a lista está vazia
     novoEvento->inicio=NULL; 
     //coloca o fim como nulo tambem
     novoEvento->fim=NULL;    
@@ -112,7 +112,7 @@ NoEvento* buscarEvento(CadastroEvento* evento, int codigo)
     printf("Lista eventos vazia\n");
     return NULL;
  }
-// percorrer a lista ate encontrar o codigo ou até null - Lucas
+// percorrer a lista ate encontrar o codigo ou até null
     NoEvento* atual = evento->inicio;
     while(atual != NULL){
         if(atual->codigo == codigo){
@@ -142,5 +142,4 @@ void listarEventos(CadastroEvento* evento)
 }
 
 
-//url misteriosa
-//https://pbs.twimg.com/media/FwILuvgXgAAXNSH.jpg
+

@@ -5,7 +5,7 @@
 #include "lista.h"
 
 
-// Função para gerar relatório de presença individual pelo RA
+// Função para gerar relatório de presença individual pelo RA - Kauan
 void relatorioParticipacao(ListaParticipante* listaP, int RA) {
     if (listaP == NULL) {
         printf("Lista inexistente!\n");

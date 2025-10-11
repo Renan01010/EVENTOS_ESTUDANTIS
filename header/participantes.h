@@ -12,6 +12,8 @@ typedef struct NoParticipante {
 } NoParticipante;
 
 typedef struct ListaParticipante ListaParticipante;
+// Função para gerar relatório de presença individual pelo RA - Kauan
 void relatorioParticipacao(ListaParticipante* listaP, int RA);
+// Função: Emitir lista de presença de um evento - Leticia
 void emitirListaPresenca(ListaParticipante* listaP, int codEvento);
 #endif

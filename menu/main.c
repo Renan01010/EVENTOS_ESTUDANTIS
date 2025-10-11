@@ -11,15 +11,20 @@ int main(){
     char nome[100], data[11];
     int RA;
     CadastroEvento *eventos = criarEvento();
-    
-    printf("Sistema de eventos escolares!\nSegue o menu abaixo\n");
+
+    printf("\nSistema de eventos escolares!\nSegue o menu abaixo\n");
+
+    //Inicializa o menu com as opções para o usuario
     do
     {
-        printf("=== MENU ===\n");
+        printf("\n=== MENU ===\n");
         printf("1. CADASTRAR EVENTO:\n2. LISTAR EVENTOS:\n3. INSCREVER PARTICIPANTE: \n4. REMOVER PARTICIPANTE:\n5. EMITIR RELATORIO DE PARTICIPACAO INDIVIDUAL: \n6. EMITIR LISTA DE PARTICIPACAO DE UM EVENTO: \n0. ENCERRAR PROGRAMA:\n");
         scanf("%d",&menu);
+
+
         switch (menu)
         {
+            //caso 1: cadastrar evento
             case 1:
                 printf("Digite o codigo do evento: \n");
                 scanf("%d",&codigo);
@@ -36,11 +41,14 @@ int main(){
                 inserirEvento(eventos, codigo, nome, data);
                 printf("Evento criado!!\n");
                 break;
+
+            //caso 2: listar eventos
             case 2:
                 printf("Aqui estao todos os eventos listados:\n");
                 listarEventos(eventos);
                 break;
             
+            //caso 3: inscrever participante no evento
             case 3: {
                 printf("Digite o codigo do evento para inscricao: ");
                 scanf("%d", &codigo);
@@ -66,7 +74,8 @@ int main(){
                 }
                 break;
             }
-                
+             
+            //caso 4: remover participante de um evento
             case 4: {
                 printf("Digite o codigo do evento: ");
                 scanf("%d", &codigo);
@@ -84,6 +93,7 @@ int main(){
                 break;
             }
 
+            //caso 5: emitir relatorio de participacao individual
             case 5: {
                 printf("Digite o RA do participante: ");
                 scanf("%d", &RA);
@@ -104,6 +114,7 @@ int main(){
                 break;
             }
 
+            //caso 6: emitir lista de participacao em um evento
             case 6: {
                  printf("Digite o codigo do evento: ");
                  scanf("%d", &codigo);
@@ -115,7 +126,9 @@ int main(){
                 emitirListaPresenca(eventoAtual->participantes, codigo); 
                 break;
             }
-                case 0:
+            
+            //caso 0: encerrar o programa
+            case 0:
                 printf("Encerrando...\n");
                 break;                
             default:
@@ -125,5 +138,3 @@ int main(){
 
     return 0;
 }
-
-// png misteriosa: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTGlH3TJ5WoK5fFKNcQ4lechdhPilj9cHINmg&s

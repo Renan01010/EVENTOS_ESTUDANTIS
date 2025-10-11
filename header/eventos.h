@@ -1,6 +1,7 @@
 #ifndef EVENTOS_ENCADEADO_H
 #define EVENTOS_ENCADEADO_H
 #include "participantes.h" 
+
 // Declaração forward para ListaParticipante (definida em lista.h)
 // Isso informa ao compilador que "ListaParticipante" é um struct.
 typedef struct ListaParticipante ListaParticipante; 
@@ -14,7 +15,7 @@ typedef struct NoEvento {
     struct NoEvento* anterior;  
     struct NoEvento* proximo;
     ListaParticipante* participantes;
-} NoEvento;
+}NoEvento;
 
 //Aqui é a estrutura do nó da lista dupla 
 typedef struct CadastroEvento {
