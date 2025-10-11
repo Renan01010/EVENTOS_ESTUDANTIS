@@ -11,4 +11,7 @@ typedef struct NoParticipante {
     struct NoParticipante* anterior;
 } NoParticipante;
 
+typedef struct ListaParticipante ListaParticipante;
+void relatorioParticipacao(ListaParticipante* listaP, int RA);
+void emitirListaPresenca(ListaParticipante* listaP, int codEvento);
 #endif
