@@ -63,6 +63,18 @@ int inserirEvento(CadastroEvento* evento, int codigo, char *nome, char *data)
         printf("Erro na alocacao!");
         return 0;
     }
+    // Verifica se já existe um evento com o mesmo código
+    if (evento->inicio != NULL) {
+        NoEvento* checa = evento->inicio;
+        while (checa != NULL) {
+            if (checa->codigo == codigo) {
+                printf("Erro: ja existe um evento com o codigo %d\n", codigo);
+                free(novoNo);
+                return 0;
+            }
+            checa = checa->proximo;
+        }
+    }
     novoNo->codigo=codigo;
     strcpy(novoNo->nome,nome);
     strcpy(novoNo->data,data);
@@ -132,9 +144,9 @@ void listarEventos(CadastroEvento* evento)
     }
 
     NoEvento* atual= evento->inicio;
-    printf("Eventos:");
+    printf("Eventos: \n\n");
     while(atual != NULL){
-        printf("codigo: %d\nNome: %s\nData: %s \n\n\n", atual->codigo, atual->nome, atual->data);
+        printf("codigo: %d\nNome: %s\nData: %s \n\n", atual->codigo, atual->nome, atual->data);
         atual=atual->proximo;
     }
     return;
